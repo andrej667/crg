@@ -1,0 +1,95 @@
+#include <stdio.h> 
+#include <string.h>
+#include <iostream> 
+#include <stdlib.h> //pridanie kniznic iostream, stdlib.h...
+
+
+using namespace std;
+
+int main()
+{
+    int a, b;
+
+    while (b = 1)
+    {
+        cout << "Ktoru hru si chces zahrat? " << "1. Uhadni cislo  " << "2. Vypocitaj " << "3. Uhadni slovo " << endl;
+
+        cin >> a;
+
+        if (a == 1)
+        {
+            int d;
+            int c;
+            c = rand() % 100 + 20;
+            cout << ": Vyber cislo ktore je medzi " << c - 3 << " and " << c + 3 << endl;
+            cout << "Napis svoju odpoved:" << endl;
+            cin >> d;
+
+            if (d == c)
+                cout << "Spravna odpoved" << endl;
+
+            else
+                cout << "Zla odpoved. Spravna odpoved je " << c << endl;
+        }
+
+        if (a == 2)
+        {
+            int c;
+            c = rand() % 20 + 10;
+            int d;
+            d = rand() % 14 + 7;
+            int f;
+
+            cout << "Kolko je " << c << " + " << d << " = " << endl;
+            cin >> f;
+
+            if (f == c + d)
+                cout << "Spravna odpoved!!" << endl;
+
+            else
+                cout << "Zla odpoved! Spravna odpoved je: " << c + d << endl;
+        }
+
+        if (a == 3)
+        {
+            string word;
+            string ans;
+            int ran;
+            ran = rand() % 5 + 1;
+
+            if (ran == 1 || ran == 2)
+                word = "elektrotechnika";
+
+            if (ran == 3)
+                word = "mechatronika";
+
+            if (ran == 4)
+                word = "logistika";
+
+            if (ran == 5)
+                word = "Strojnictvo";
+
+            int l = word.size();
+
+            cout << "Guess the word:  ";
+
+            for (int i = 0; i < l; i++)
+            {
+                if (i % 2 == 0)
+                    cout << word[i];
+
+                else
+                    cout << "_";
+            }
+
+            cout << endl << "Napis svoju odpoved:  ";
+            cin >> ans;
+
+            if (word == ans)
+                cout << "Spravna odpoved! Hraj znovu... " << endl;
+
+            else
+                cout << "Zla odpoved! Hraj znovu " << endl;
+        }
+    }
+}
